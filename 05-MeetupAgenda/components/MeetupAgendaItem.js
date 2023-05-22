@@ -12,6 +12,10 @@ export default defineComponent({
     }
   },
 
+  agendaItemDefaultTitles,
+  agendaItemIcons,
+  
+
 
   computed: {
     showImg() {
@@ -19,13 +23,10 @@ export default defineComponent({
       return (`/assets/icons/icon-${agendaItemIcons[imgWay]}.svg`);
     },
   },
-  showTitle() {
-    const titleWay = this.agendaItem.type;
-    if (this.agendaItem.title !== null) {
-      return titleWay;
-    }
-    return agendaItemDefaultTitles[titleWay];
-  },
+  // showTitle() {
+  //   const titleWay = this.agendaItem.type;
+  //   return agendaItemDefaultTitles[titleWay];
+  // },
   template: `
     <div class="agenda-item">
       <div class="agenda-item__col">
@@ -33,7 +34,8 @@ export default defineComponent({
       </div>
       <div class="agenda-item__col">{{agendaItem.startsAt}} - {{agendaItem.endsAt}}</div>
       <div class="agenda-item__col">
-        <h3 class="agenda-item__title">{{showTitle}}</h3>
+        <h3 class="agenda-item__title" v-if="agendaItem.title">{{agendaItem.title}}</h3>
+        <h3 class="agenda-item__title" v-else>{{$options.agendaItemDefaultTitles[agendaItem.type]}}</h3>
         <p v-if="agendaItem.type === 'talk'" class="agenda-item__talk">
           <span>{{agendaItem.speaker}}</span>
           <span class="agenda-item__dot"></span>
