@@ -8,7 +8,6 @@ export default defineComponent({
     agendaItem: {
       type: Object,
       required: true,
-      default: null,
     }
   },
 
@@ -41,7 +40,7 @@ export default defineComponent({
           <span class="agenda-item__dot"></span>
           <span class="agenda-item__lang">{{agendaItem.language}}</span>
         </p>
-        <p>{{agendaItem.description}}</p>
+        <p v-if="agendaItem.description">{{agendaItem.description}}</p>
       </div>
     </div>`,
 
