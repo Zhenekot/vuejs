@@ -12,7 +12,6 @@ export default defineComponent({
   },
 
   agendaItemDefaultTitles,
-  agendaItemIcons,
   
 
 
