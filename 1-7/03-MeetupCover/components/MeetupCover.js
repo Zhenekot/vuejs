@@ -5,11 +5,11 @@ export default defineComponent({
   props: {
     title: {
       type: String,
-      default: '',
+     
     },
     image: {
       type: String,
-      default: '',
+
     },
   },
   template: `
