@@ -17,7 +17,7 @@ export default {
     },
   },
 
-  computed: {
+methods: {
     imageBg() {
       if (this.image) {
         return `linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
